@@ -35,7 +35,7 @@ public class GuestbookController {
 		model.addAttribute("guestList", guestList);
 		
 		//포워드
-		return "/guestbook/addList";
+		return "guestbook/addList";
 	}
 	
 	//등록
@@ -58,7 +58,7 @@ public class GuestbookController {
 		System.out.println("GuestbookController.dform");
 		
 		//deleteForm으로 포워드
-		return "/guestbook/deleteForm";
+		return "guestbook/deleteForm";
 	}
 	//삭제
 	//http://localhost:8080/mysite5/gbc/delete?no=3&password=123

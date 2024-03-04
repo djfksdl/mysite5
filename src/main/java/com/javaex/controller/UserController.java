@@ -27,7 +27,7 @@ public class UserController {
 	public String loginform() {
 		System.out.println("UserController.loginform()");
 		
-		return "/user/loginForm";
+		return "user/loginForm";
 	}
 	//로그인
 	//http://localhost:8080/mysite5/user/login?id=aaa&password=1234(pw주의!)
@@ -64,7 +64,7 @@ public class UserController {
 	public String joinform() {
 		System.out.println("UserController.joinform");
 		//회원가입 폼으로 포워드
-		return "/user/joinForm";
+		return "user/joinForm";
 	}
 	//회원가입
 	//http://localhost:8080/mysite5/user/join&id=ddd&password=ddd&name=ddd&gender=woman
@@ -96,7 +96,7 @@ public class UserController {
 		System.out.println(userVo);
 		
 		//회원정보 수정폼으로 포워드
-		return"/user/modifyForm";
+		return"user/modifyForm";
 	}
 	//회원정보 수정
 	//http://localhost:8080/mysite5/user/modify&password=ljh&name=ljh&gender=female& no=3(세션 no)

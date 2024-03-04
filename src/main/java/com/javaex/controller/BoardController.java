@@ -38,7 +38,7 @@ public class BoardController {
 		model.addAttribute("boardList", boardList);
 		
 		//포워드
-		return "/board/list";
+		return "board/list";
 		
 	}
 	
@@ -50,7 +50,7 @@ public class BoardController {
 		
 		//로그인 되어있으니까 언제든 session가져올 수 있음. 따라서 no굳이 안가져와도됨.jsp에도 안숨겨도 됨.그냥 글 쓰고나서 session가져오면 되니까
 		//포워드
-		return "/board/writeForm";
+		return "board/writeForm";
 	}
 	//글쓰기- 제목,내용
 	//http://localhost:8080/mysite5/board/write?title=겜블러&content=겜블러&no=세션에서 가져온 no
@@ -88,7 +88,7 @@ public class BoardController {
 		System.out.println(boardVo);
 		
 		//포워드
-		return "/board/read";
+		return "board/read";
 	}
 	//수정폼
 	//http://localhost:8080/mysite5/board/mform
@@ -103,7 +103,7 @@ public class BoardController {
 		model.addAttribute(boardVo);
 		
 		//포워드
-		return "/board/modifyForm";
+		return "board/modifyForm";
 	}
 	//수정
 	//http://localhost:8080/mysite5/board/modify?title=마라탕&content=맛있다no=3
