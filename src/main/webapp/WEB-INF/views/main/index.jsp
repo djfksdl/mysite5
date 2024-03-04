@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,18 +17,22 @@
 			<h1>
 				<a href="${pageContext.request.contextPath}/main">MySite-${pageContext.request.contextPath}</a>
 			</h1>
-
-			<!-- 
-			<ul>
-				<li>황일영 님 안녕하세요^^</li>
-				<li><a href="" class="btn_s">로그아웃</a></li>
-				<li><a href="" class="btn_s">회원정보수정</a></li>
-			</ul>
-			-->	
-			<ul>
-				<li><a href="" class="btn_s">로그인</a></li>
-				<li><a href="" class="btn_s">회원가입</a></li>
-			</ul>
+			
+			<!-- 로그인했을때 -->
+			<c:if test="${sessionScope.authUser != null}">
+				<ul>
+					<li>${sessionScope.authUser.name} 님 안녕하세요^^</li>
+					<li><a href="${pageContext.request.contextPath}/user/logout" class="btn_s">로그아웃</a></li>
+					<li><a href="${pageContext.request.contextPath}/user/mform" class="btn_s">회원정보수정</a></li>
+				</ul>
+			</c:if>
+			<!-- 로그인 안했을때,틀렸을때 -->
+			<c:if test="${sessionScope.authUser == null}">
+				<ul>
+					<li><a href="${pageContext.request.contextPath}/user/loginform" class="btn_s">로그인</a></li>
+					<li><a href="${pageContext.request.contextPath}/user/joinform" class="btn_s">회원가입</a></li>
+				</ul>
+			</c:if>
 			
 		</div>
 		<!-- //header -->
