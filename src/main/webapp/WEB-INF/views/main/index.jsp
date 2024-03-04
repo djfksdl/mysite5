@@ -13,39 +13,9 @@
 <body>
 	<div id="wrap">
 
-		<div id="header" class="clearfix">
-			<h1>
-				<a href="${pageContext.request.contextPath}/main">MySite-${pageContext.request.contextPath}</a>
-			</h1>
-			
-			<!-- 로그인했을때 -->
-			<c:if test="${sessionScope.authUser != null}">
-				<ul>
-					<li>${sessionScope.authUser.name} 님 안녕하세요^^</li>
-					<li><a href="${pageContext.request.contextPath}/user/logout" class="btn_s">로그아웃</a></li>
-					<li><a href="${pageContext.request.contextPath}/user/mform" class="btn_s">회원정보수정</a></li>
-				</ul>
-			</c:if>
-			<!-- 로그인 안했을때,틀렸을때 -->
-			<c:if test="${sessionScope.authUser == null}">
-				<ul>
-					<li><a href="${pageContext.request.contextPath}/user/loginform" class="btn_s">로그인</a></li>
-					<li><a href="${pageContext.request.contextPath}/user/joinform" class="btn_s">회원가입</a></li>
-				</ul>
-			</c:if>
-			
-		</div>
+		<!-- header -->
+		<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 		<!-- //header -->
-
-		<div id="nav">
-			<ul class="clearfix">
-				<li><a href="">입사지원서</a></li>
-				<li><a href="">게시판</a></li>
-				<li><a href="">갤러리</a></li>
-				<li><a href="">방명록</a></li>
-			</ul>
-		</div>
-		<!-- //nav -->
 
 		
 		<div id="container" class="clearfix">
@@ -90,11 +60,11 @@
 		</div>
 		<!-- //container -->
 		
+		<!-- footer.jsp를 불러와라 -->
+		<c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
 		
-		<div id="footer">
-			Copyright ⓒ 2020 황일영. All right reserved
-		</div>
 		<!-- //footer -->
+
 
 	</div>
 	<!-- //wrap -->
