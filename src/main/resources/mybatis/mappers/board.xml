@@ -24,14 +24,33 @@
 	<!-- 게시글 눌렀을때 -->
 	<select id="selectByNo" parameterType="com.javaex.vo.BoardVo" resultType="com.javaex.vo.BoardVo">
 		<![CDATA[
-			select name
+			select b.no
+				  ,name
 	  			  ,hit
       		  	  ,reg_date
       			  ,title
       	 	 	  ,content
+      	 	 	  ,user_no
 			from board b join users u
 			where b.user_no = u.no
 			and b.no=#{no}
 		]]>
 	</select>
+	<!-- 수정 -->
+	<update id="update" parameterType="com.javaex.vo.BoardVo">
+		<![CDATA[
+			update board
+			set title=#{title}
+				,content=#{content}
+			where no=#{no}
+		]]>
+	</update>
+	<!-- 삭제 -->
+	<delete id="delete" parameterType="int">
+		<![CDATA[
+			delete 
+			from board
+			where no=#{no}
+		]]>
+	</delete>
 </mapper>

@@ -1,18 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="com.javaex.vo.BoardVo" %>
-<%@ page import="com.javaex.vo.UserVo" %>
-<%@ page import="java.util.List" %>
-<% BoardVo boardVo = (BoardVo)request.getAttribute("boardVo"); 
-	UserVo authUser = (UserVo)session.getAttribute("authUser");
-%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="/mysite3/assets/css/mysite.css" rel="stylesheet" type="text/css">
-<link href="/mysite3/assets/css/board.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/assets/css/mysite.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/assets/css/board.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -21,7 +15,7 @@
 	<div id="wrap">
 
 		<!-- header -->
-		<jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
+		<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 		<!-- //header -->
 
 		<div id="container" class="clearfix">
@@ -51,7 +45,7 @@
 	
 				<div id="board">
 					<div id="modifyForm">
-						<form action="/mysite3/board" method="get">
+						<form action="${pageContext.request.contextPath}/board/modify" method="get">
 							<!-- 작성자 -->
 							<div class="form-group">
 								<span class="form-text">작성자</span>
@@ -85,10 +79,9 @@
 								</textarea>
 							</div>
 							
-							<a id="btn_cancel" href="/mysite3/board">취소</a>
+							<a id="btn_cancel" href="${pageContext.request.contextPath}/board/list">취소</a>
 							<button id="btn_modify" type="submit" >수정</button>
-							<input type="text" name="action" value="modify">
-							<input type="text" name="no" value="<%= request.getParameter("no") %>">
+							<input type="text" name="no" value="${boardVo.no}">
 						</form>
 						<!-- //form -->
 					</div>
@@ -103,7 +96,7 @@
 
 
 		<!-- footer.jsp를 불러와라 -->
-		<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
+		<c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
 		
 		<!-- //footer -->
 	</div>

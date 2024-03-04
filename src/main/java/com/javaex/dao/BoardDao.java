@@ -44,4 +44,18 @@ public class BoardDao {
 		
 		return boardVo;
 	}
+	//수정
+	public void boardUpdate(BoardVo boardVo) {
+		System.out.println("BoardDao.boardUpdate");
+		
+		//sqlSession에서 update문
+		sqlSession.update("board.update", boardVo);
+	}
+	//삭제
+	public void boardDelete(int no) {
+		System.out.println("BoardDao.boardDelete");
+		
+		//sqlSession에서 delete문
+		sqlSession.delete("board.delete", no);
+	}
 }

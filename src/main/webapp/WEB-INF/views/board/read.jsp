@@ -44,7 +44,7 @@
 	
 				<div id="board">
 					<div id="read">
-						<form action="${pageContext.request.contextPath}/board" method="get">
+						<form action="" method="get">
 							<!-- 작성자 -->
 							<div class="form-group">
 								<span class="form-text">작성자</span>
@@ -76,8 +76,8 @@
 								</span>
 							</div>
 							<c:choose>
-								<c:when test="${not empty authUser and authUser.no == boardVo.user_no}">
-									<a id="btn_modify" href="${pageContext.request.contextPath}/board/mform&no=${boardVo.no} %>">수정</a>
+								<c:when test="${authUser.no == boardVo.user_no}">
+									<a id="btn_modify" href="${pageContext.request.contextPath}/board/mform?no=${boardVo.no}">수정</a>
 									<a id="btn_modify" href="${pageContext.request.contextPath}/board/list">목록</a>
 								</c:when>
 								<c:otherwise>

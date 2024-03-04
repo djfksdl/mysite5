@@ -85,6 +85,7 @@ public class BoardController {
 
 		//attribute에 넣기
 		model.addAttribute(boardVo);
+		System.out.println(boardVo);
 		
 		//포워드
 		return "/board/read";
@@ -92,22 +93,39 @@ public class BoardController {
 	//수정폼
 	//http://localhost:8080/mysite5/board/mform
 	@RequestMapping(value="/board/mform",method= {RequestMethod.GET, RequestMethod.POST} )
-	public void mform(@RequestParam(value="no")int no) {//no를 받아야함. 
+	public String mform(@RequestParam(value="no")int no, Model model) {//no를 받아야함. 
 		System.out.println("BoardController.mform");
 		
-		//
+		//서비스로 no보내서 한 정보 가져오기
+		BoardVo boardVo= boardService.exeSelectByNo(no);
 		
+		//attribute에 넣기
+		model.addAttribute(boardVo);
+		
+		//포워드
+		return "/board/modifyForm";
 	}
 	//수정
-	//http://localhost:8080/mysite5/board/modify
+	//http://localhost:8080/mysite5/board/modify?title=마라탕&content=맛있다no=3
 	@RequestMapping(value="/board/modify",method= {RequestMethod.GET, RequestMethod.POST} )
-	public void modify() {
+	public String modify(@ModelAttribute BoardVo boardVo) {
 		System.out.println("BoardController.modify");
+		
+		//서비스에 boardVo넣어주기
+		boardService.exeUpdate(boardVo);
+		
+		//list로 리다이렉트
+		return "redirect:/board/list";
 	}
 	//삭제
-	//http://localhost:8080/mysite5/board/delete
+	//http://localhost:8080/mysite5/board/delete?no=3
 	@RequestMapping(value="/board/delete",method= {RequestMethod.GET, RequestMethod.POST} )
-	public void delete() {
+	public String delete(@RequestParam(value="no")int no) {//no가져오기
 		System.out.println("BoardController.delete");
+		
+		//서비스에 no전달
+		boardService.exeDelete(no);
+		
+		return "redirect:/board/list";
 	}
 }

@@ -72,7 +72,7 @@
 										<c:choose>
 											
 											<c:when test="${not empty authUser and authUser.no == bList.user_no}">
-												<td><a href="${pageContext.request.contextPath}/board/delete">[삭제]</a></td>
+												<td><a href="${pageContext.request.contextPath}/board/delete?no=${bList.no}">[삭제]</a></td>
 											</c:when>
 											<c:otherwise>
 												<td><a href=""></a></td>

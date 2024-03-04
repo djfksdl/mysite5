@@ -33,12 +33,28 @@ public class BoardService {
 		//Dao에 boardVo 전달하기
 		boardDao.boardWrite(boardVo);
 	}
-	//게시글 눌렀을때
+	//게시글 눌렀을때,수정폼
 	public BoardVo exeSelectByNo(int no) {
 		System.out.println("BoardService.exeSelectByNo");
 		
 		//Dao에 no전달하기
 		BoardVo boardVo= boardDao.boardSelectByNo(no);
 		return boardVo;
+	}
+	//수정
+	public void exeUpdate(BoardVo boardVo) {
+		System.out.println("BoardService.exeUpdate");
+		
+		//Dao로 boardVo보내기
+		boardDao.boardUpdate(boardVo);
+	}
+	//삭제
+	public void exeDelete(int no) {
+		System.out.println("BoardService.exeDelete");
+		
+		//Dao로 no보내기
+		boardDao.boardDelete(no);
+		
+		
 	}
 }

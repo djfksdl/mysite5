@@ -68,7 +68,7 @@
 								<label class="form-text" for="input-name">이름</label> 
 								<input type="text" id="input-name" name="name" value="${userVo.name}" placeholder="이름을 입력하세요">
 							</div>
-							<!-- //나이 -->
+							<!-- 나이 -->
 							<div class="form-group">
 								<span class="form-text">성별</span> 
 								<label for="rdo-male">남</label> 
