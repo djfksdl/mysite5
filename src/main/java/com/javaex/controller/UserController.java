@@ -106,7 +106,8 @@ public class UserController {
 						 ,@RequestParam(value="gender") String gender
 						 ,HttpSession session) {//password=ljh&name=ljh&gender=female&no=3(세션no)
 		System.out.println("UserController.modify");
-		//하나씩 받는거 말고 userVo로 받고, 나중에 session으로 받은건 setter로 추가해주면 된다!예시 BoardController에 있음
+		//하나씩 받는거 말고 userVo로 받고, 나중에 session으로 받은건 setter로 추가해주면 된다!예시 BoardController(글쓰기)에 있음
+		
 		//session에서 no꺼내서 userVo와 함께 묶기
 		UserVo uVo =(UserVo)session.getAttribute("authUser");
 		int num = uVo.getNo();

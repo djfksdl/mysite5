@@ -62,6 +62,7 @@
 								</tr>
 							</thead>
 							<tbody>
+								<!-- var이름이 blist이면 좀 안맞음. boardList는 여러개라서 괜찮은데 그중에 하나를 꺼내는거니까 blist보단 다른 이름을 지어주는게 좋다! -->
 								<c:forEach items="${boardList}" var="bList">
 									<tr class="last">
 										<td>${bList.no}</td>
