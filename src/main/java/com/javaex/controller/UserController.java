@@ -106,7 +106,7 @@ public class UserController {
 						 ,@RequestParam(value="gender") String gender
 						 ,HttpSession session) {//password=ljh&name=ljh&gender=female&no=3(세션no)
 		System.out.println("UserController.modify");
-		//UserVo에 no가 있긴한데 또 따로 session을 받는다고 말해야하는지?아님 그냥 UserVo에 있는 no를 => 폼에 숨겨서 가져가보자ㅎㅎ
+		//하나씩 받는거 말고 userVo로 받고, 나중에 session으로 받은건 setter로 추가해주면 된다!예시 BoardController에 있음
 		//session에서 no꺼내서 userVo와 함께 묶기
 		UserVo uVo =(UserVo)session.getAttribute("authUser");
 		int num = uVo.getNo();
