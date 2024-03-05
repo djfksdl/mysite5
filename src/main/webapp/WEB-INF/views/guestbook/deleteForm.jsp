@@ -59,7 +59,7 @@
 							</tr>
 						</table>
 						<input type='hidden' name="action" value="delete">
-						<input type='hidden' name="no" value="<%= request.getParameter("no") %>">
+						<input type='hidden' name="no" value="${param.no} ">
 					</form>
 					
 				</div>
