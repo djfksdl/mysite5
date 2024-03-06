@@ -112,10 +112,13 @@ public class UserController {
 		UserVo uVo =(UserVo)session.getAttribute("authUser");
 		int num = uVo.getNo();
 		
-		UserVo userVo = new UserVo(num, name, password, gender);
-		
+		UserVo userVo = new UserVo(num, password, name, gender);
+		System.out.println(userVo);
 		//서비스로 묶은거 넘기기
 		userService.exeModify(userVo);
+		
+		//세션에 이름 바꿔준다
+		((UserVo)session.getAttribute("authUser")).setName(name) ;
 		
 		//메인화면으로 리다이렉트
 		return "redirect:/main";
