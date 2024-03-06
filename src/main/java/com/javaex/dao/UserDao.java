@@ -50,7 +50,9 @@ public class UserDao {
 	public int userUpdate(UserVo userVo) {
 		System.out.println("UserDao.userUpdate");
 		
+		System.out.println("수정전-안됨쓰:"+userVo);//이미 수정할 정보를 넘겨준거라 수정전 정보가 확인이 되지않는다! 이전정보확인하려면 수정폼에서 확인해야함
 		int count = sqlSession.update("user.update", userVo);
+		System.out.println("수정후:" + userVo);
 		return count;
 	}
 }

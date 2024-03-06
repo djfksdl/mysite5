@@ -117,8 +117,8 @@ public class UserController {
 		//서비스로 묶은거 넘기기
 		userService.exeModify(userVo);
 		
-		//세션에 이름 바꿔준다
-		((UserVo)session.getAttribute("authUser")).setName(name) ;
+		//세션에 이름 넣어준다.
+		uVo.setName(name);//따로 리턴을 안받아오고 넣는건 여기에 name값이 이미 수정한 값이기 때문에 바로 넣으면 됨!
 		
 		//메인화면으로 리다이렉트
 		return "redirect:/main";
